@@ -1,11 +1,23 @@
 function firstNonRepeatedChar(str) {
  // Write your code here
-	for (let i = 1; i < str.length-1; i++) {
-		if (str[i-1] != str[i]  &&  str[i] != str[i+1]) {
-			return str[i]
-		}
-	}
-	return null
+	str = str.toLowerCase()
+
+for (var i = 0; i < str.length; i++) {
+  let isFound = false;
+  
+  for( let j = 0; j< str.length; j++){
+    if(i !== j && str[i] === str[j]){
+      isFound = true;
+      break;
+    }
+  }
+  if(!isFound){
+    //console.log(str[i])
+    return str[i]
+  }
+}
+//console.log("-1")
+    return null
 }
 const input = prompt("Enter a string");
 alert(firstNonRepeatedChar(input)); 
